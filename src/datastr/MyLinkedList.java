@@ -85,7 +85,7 @@ public class MyLinkedList<Ttype> {
 			//veiks lēcienu līdz vēlamajai pozīcijai -1
 			MyNode<Ttype> currentNode = firstNode;
 			
-			for(int i = 1; i <= position-1; i++) {
+			for(int i = 1; i < position-1; i++) {
 				currentNode = currentNode.getNext();
 			}
 			//dabūjuam nakamo mezglu, kas ir saistītts
