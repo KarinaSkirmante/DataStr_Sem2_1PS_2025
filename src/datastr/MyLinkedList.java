@@ -30,7 +30,7 @@ public class MyLinkedList<Ttype> {
 		return counter;
 	}
 	
-	public void add(Ttype element) {
+	public void add(Ttype element) throws Exception {
 		if(!isFull()) {
 			
 			if(isEmpty()) {
@@ -50,7 +50,54 @@ public class MyLinkedList<Ttype> {
 			
 			
 		}
+		else
+		{
+			throw new Exception("Saraksts ir pilns un tajā nevar pievienot elementu");
+		}
 	}
+	
+	//position - sakās no 1
+	public void add(Ttype element, int position) throws Exception {
+		if(isFull()) {
+			throw new Exception("Saraksts ir pilns, tāpēc nevar pievienot elementu");
+		}
+		
+		if(position <= 0 || position > counter+1)
+		{
+			throw new Exception("Padotā pozīcija nav pareiza");
+		}
+		
+		
+		if(position == 1) {//ja grib pievienot pašā priekšā
+			MyNode<Ttype> newNode = new MyNode<Ttype>(element);
+			newNode.setNext(firstNode);
+			firstNode = newNode;
+			counter++;
+			
+		}
+		else if(position == counter+1) {//ja grib pievienot kā pēdējo 
+			add(element);			
+		}
+		else
+		{
+			MyNode<Ttype> newNode = new MyNode<Ttype>(element);
+			
+			//veiks lēcienu līdz vēlamajai pozīcijai -1
+			MyNode<Ttype> currentNode = firstNode;
+			
+			for(int i = 1; i <= position-1; i++) {
+				currentNode = currentNode.getNext();
+			}
+			//dabūjuam nakamo mezglu, kas ir saistītts
+			MyNode<Ttype> currentNodeNext = currentNode.getNext();
+			currentNode.setNext(newNode);
+			newNode.setNext(currentNodeNext);
+			counter++;
+		}
+	}
+	
+	
+	
 	
 	public void print() throws Exception
 	{
