@@ -3,7 +3,7 @@ package datastr;
 
 public class MyNode <Ttype> {
 	private Ttype element;
-	private MyNode<Ttype> next;
+	private MyNode<Ttype> next = null;
 	
 	public Ttype getElement() {
 		return element;
@@ -25,5 +25,12 @@ public class MyNode <Ttype> {
 	public void setNext(MyNode<Ttype> inputNext) {
 		next = inputNext;
 	}
+	
+	public MyNode(Ttype element) {
+		setElement(element);
+	}
 
+	public String toString() {
+		return element + "";
+	}
 }
