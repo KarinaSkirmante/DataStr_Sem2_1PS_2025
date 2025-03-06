@@ -31,7 +31,8 @@ public class MainService {
 			linkedListForInt.print();// 1000 45 -777 -100 200 1
 			linkedListForInt.remove(3);
 			linkedListForInt.print();// 1000 45 -100 200 1
-			
+			System.out.println("----------------GET--------------");
+			System.out.println(linkedListForInt.get(3));//-100
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

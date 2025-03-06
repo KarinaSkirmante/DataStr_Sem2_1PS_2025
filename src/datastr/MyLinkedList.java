@@ -142,8 +142,29 @@ public class MyLinkedList<Ttype> {
 		
 		
 	}
-	
-
+	//TODO uztaisīt get funkcitju pašiem
+	public Ttype get(int position) throws Exception {
+		//parbaude par isEmpty
+		if(isEmpty())
+		{
+			throw new Exception("Saraksts ir tukšs, tāpēc nevar piekļūt elementiem");
+		}
+		
+		if(position < 1 || position > counter)
+		{
+			throw new Exception("Padotā pozīcija nav pareiza");
+		}
+		
+		MyNode<Ttype> currentNode = firstNode;
+		
+		for(int i = 1; i <= position -1; i++) {
+			currentNode = currentNode.getNext();
+		}
+		
+		return currentNode.getElement();
+		
+		
+	}
 
 	
 	public void print() throws Exception
