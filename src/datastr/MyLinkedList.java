@@ -95,9 +95,56 @@ public class MyLinkedList<Ttype> {
 			counter++;
 		}
 	}
+	//dzdešanas funkcijas definīcja, kura ka input param ir pozīcija
+	public void remove(int position) throws Exception{
+		if(isEmpty()) {
+			throw new Exception("Saraksts ir tukšs, tāpēc neko nevarēs dzēst");
+		}
+		
+		if(position < 1 || position > counter)
+		{
+			throw new Exception("Padotā pozīcija nav pareiza");
+		}
+		
+		if(position == 1)//pirmais tiks dzēsts
+		{
+			firstNode = firstNode.getNext();
+			counter--;
+			System.gc();
+		}
+		else if(position == counter)//pēdejais tiks dzēsts
+		{
+			MyNode<Ttype> currentNode = firstNode;
+			for(int i  = 1; i <= position -2; i++)
+			{
+				currentNode = currentNode.getNext();
+			}
+			lastNode = currentNode;
+			lastNode.setNext(null);//aiz sī mezgla vairs nav citu mezglu
+			counter--;
+			System.gc();
+			
+		}
+		else//tiks dzēsts elements pa vidu
+		{
+			MyNode<Ttype> currentNode = firstNode;
+			for(int i  = 1; i <= position -2; i++)
+			{
+				currentNode = currentNode.getNext();
+			}
+			
+			MyNode<Ttype> curentNodeNextNext = currentNode.getNext().getNext();
+			currentNode.setNext(curentNodeNextNext);
+			counter--;
+			System.gc();
+			
+		}
+		
+		
+	}
 	
-	
-	
+
+
 	
 	public void print() throws Exception
 	{
