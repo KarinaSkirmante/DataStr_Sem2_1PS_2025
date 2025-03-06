@@ -9,6 +9,8 @@ public class MainService {
 	public static void main(String[] args) {
 		MyLinkedList<Integer> linkedListForInt = new  MyLinkedList<>();
 		try {
+			
+			System.out.println("----------------ADD--------------");
 			linkedListForInt.add(45);
 			linkedListForInt.add(-100);
 			linkedListForInt.add(200);
@@ -22,7 +24,13 @@ public class MainService {
 			linkedListForInt.print();// 2000 1000 45 -100 200 1 -33
 			linkedListForInt.add(-777, 4);
 			linkedListForInt.print();// 2000 1000 45 -777 -100 200 1 -33
-			
+			System.out.println("----------------DELETE--------------");
+			linkedListForInt.remove(1);
+			linkedListForInt.print();// 1000 45 -777 -100 200 1 -33
+			linkedListForInt.remove(7);
+			linkedListForInt.print();// 1000 45 -777 -100 200 1
+			linkedListForInt.remove(3);
+			linkedListForInt.print();// 1000 45 -100 200 1
 			
 			
 		} catch (Exception e) {
