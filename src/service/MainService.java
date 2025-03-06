@@ -38,6 +38,12 @@ public class MainService {
 			System.out.println("-100 ? -> " + linkedListForInt.search(-100));//true
 			System.out.println("-3000 ? -> " + linkedListForInt.search(-3000));//false
 			
+			System.out.println("----------------MAKE EMPTY--------------");
+			linkedListForInt.makeEmpty();
+			linkedListForInt.add(-10000);
+			linkedListForInt.print();//-10000
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());

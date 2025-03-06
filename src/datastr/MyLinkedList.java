@@ -189,12 +189,7 @@ public class MyLinkedList<Ttype> {
 		
 		
 	}
-	
-	//TODO izveidot MakeEmpty funkciju un to notestēt
-	//TODO nokopēt student klasi un nostēste visas darbības ar Studentiem
-	
-	
-	
+
 	public void print() throws Exception
 	{
 		//pārbaudi uz isEmpty
@@ -213,6 +208,16 @@ public class MyLinkedList<Ttype> {
 		System.out.println();
 	}
 	
+	public void makeEmpty()
+	{
+		if(!isEmpty()) {
+			counter = 0;
+			firstNode = null;
+			lastNode = null;
+			System.gc();
+			
+		}
+	}
 	
 	
 }
