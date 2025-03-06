@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import datastr.MyLinkedList;
+import model.Student;
 
 public class MainService {
 
@@ -43,6 +44,34 @@ public class MainService {
 			linkedListForInt.add(-10000);
 			linkedListForInt.print();//-10000
 			
+			System.out.println("-----------------------------------------");
+			System.out.println("----------------STUDENTS-----------------");
+			System.out.println("-----------------------------------------");
+			//TODO veikt pāŗbaudi uz studentiem
+			MyLinkedList<Student> linkedListForStudents = new MyLinkedList<>();
+
+			Student st1 = new Student();// Lara Bernardes student
+			Student st2 = new Student("Viktors", "Kokin", "123456-09876");
+			Student st3 = new Student("Davyd", "Akimov", "121298-67894");
+			
+			System.out.println("----------------ADD--------------");
+			linkedListForStudents.add(st1);//Lara
+			linkedListForStudents.add(st2, 1);//Viktors Lara
+			linkedListForStudents.add(st3,1);//Davyd Viktors Lara
+			linkedListForStudents.print();//Davyd Viktors Lara
+			System.out.println("----------------DELETE--------------");
+			linkedListForStudents.remove(2);//Viktors tiks dzēsts
+			linkedListForStudents.print();//Davyd Lara
+			System.out.println("----------------GET--------------");
+			System.out.println(linkedListForStudents.get(2));//Lara
+			System.out.println("----------------SEARCH--------------");
+			System.out.println("Vai Davyds ir sarakstā ? -> " + linkedListForStudents.search(st3));//true
+			System.out.println("Vai Viktors ir sarakstā ? -> " + linkedListForStudents.search(st2));//false
+
+			System.out.println("----------------MAKE EMPTY--------------");
+			linkedListForStudents.makeEmpty();
+			linkedListForStudents.add(new Student("Janis", "Berzins", "123456-65432"));
+			linkedListForStudents.print();//Janis
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
