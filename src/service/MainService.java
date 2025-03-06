@@ -34,6 +34,10 @@ public class MainService {
 			System.out.println("----------------GET--------------");
 			System.out.println(linkedListForInt.get(3));//-100
 			
+			System.out.println("----------------SEARCH--------------");
+			System.out.println("-100 ? -> " + linkedListForInt.search(-100));//true
+			System.out.println("-3000 ? -> " + linkedListForInt.search(-3000));//false
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());

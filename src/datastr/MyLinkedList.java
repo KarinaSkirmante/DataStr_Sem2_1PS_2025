@@ -166,6 +166,34 @@ public class MyLinkedList<Ttype> {
 		
 	}
 
+	public boolean search(Ttype element) throws Exception {
+		//parbaude par isEmpty
+		if(isEmpty())
+		{
+			throw new Exception("Saraksts ir tukšs, tāpēc nevar meklēt elementus");
+		}
+		
+		MyNode<Ttype> currentNode = firstNode;
+		
+		while(currentNode != null) {
+			
+			if(currentNode.getElement().equals(element))
+			{
+				return true;
+			}
+
+			currentNode = currentNode.getNext();
+		}
+		
+		return false;
+		
+		
+	}
+	
+	//TODO izveidot MakeEmpty funkciju un to notestēt
+	//TODO nokopēt student klasi un nostēste visas darbības ar Studentiem
+	
+	
 	
 	public void print() throws Exception
 	{
